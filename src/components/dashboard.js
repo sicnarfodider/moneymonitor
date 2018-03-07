@@ -1,12 +1,28 @@
-import React from 'react';
+import React,{ Component } from 'react';
+import { connect } from 'react-redux';
+import { addExpense } from '../actions';
 
 
-const Dashboard = props =>{
-    return(
-        <div>
-            Dashboard
-        </div>
-    )
+class Dashboard extends Component{
+
+    componentDidMount(){
+        this.props.addExpense('rent','testing','100')
+    }
+
+    render(){
+        console.log('props',this.props);
+        return(
+            <div>
+                Dashboard
+            </div>
+        )
+    }
 }
 
-export default Dashboard;
+
+function mapStateToProps(state){
+    return{
+        expense: state.expense
+    }
+}
+export default connect(mapStateToProps,{ addExpense })(Dashboard);
