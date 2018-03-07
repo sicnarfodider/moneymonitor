@@ -2,7 +2,7 @@ import types from '../actions/types';
 
 const DEFAULT_STATE={
     text: '',
-    sortBy: 'date',
+    sortBy: 'amount',
     startDate: undefined,
     endDate: undefined
 }

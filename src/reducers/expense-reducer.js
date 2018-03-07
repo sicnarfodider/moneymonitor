@@ -9,9 +9,9 @@ export default function(state=DEFAULT_STATE, action){
     switch (action.type) {
         case types.ADD_EXPENSE:
             return [...state, action.payload];
-        case type.REMOVE_EXPENSE:
+        case types.REMOVE_EXPENSE:
             return state.filter( expense => action.id !== expense.id );
-        case type.EDIT_EXPENSE:
+        case types.EDIT_EXPENSE:
             return state.map( expense=>{
                 if(expense.id === action.id){
                     return {...expense, ...action.edits}
