@@ -13,7 +13,7 @@ const ExpenseList = (props) =>{
     return(
         <div>
             <h1> Your Expense List</h1>
-            {list.length > 0 ? list : <p>You don't have any current list</p>}
+            {list.length > 0 ? list : <p>You do not have any current list</p>}
         </div>
     )
 }
