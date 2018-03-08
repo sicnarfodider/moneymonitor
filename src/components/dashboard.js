@@ -1,12 +1,16 @@
 import React,{ Component } from 'react';
 import { connect } from 'react-redux';
-import { addExpense } from '../actions';
-
+import { addExpense, setTextFilter } from '../actions';
+import ExpenseList from './expenseList';
+import Filters from './filters';
 
 class Dashboard extends Component{
 
-    componentDidMount(){
-        this.props.addExpense('rent','testing','100')
+    componentWillMount(){
+        this.props.addExpense('rent','testing','100','2000')
+        this.props.addExpense('gaming bill','testing','500','100230')
+        this.props.addExpense('water bill','testing','400','103210')
+        this.props.setTextFilter('e')
     }
 
     render(){
@@ -14,6 +18,8 @@ class Dashboard extends Component{
         return(
             <div>
                 Dashboard
+                <Filters />
+                <ExpenseList />
             </div>
         )
     }
@@ -22,7 +28,8 @@ class Dashboard extends Component{
 
 function mapStateToProps(state){
     return{
-        expense: state.expense
+        expense: state.expense,
+        filters: state.filter
     }
 }
-export default connect(mapStateToProps,{ addExpense })(Dashboard);
+export default connect(mapStateToProps,{ addExpense, setTextFilter })(Dashboard);
