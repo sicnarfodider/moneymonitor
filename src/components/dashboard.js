@@ -8,9 +8,6 @@ class Dashboard extends Component{
 
     componentWillMount(){
         this.props.addExpense('rent','testing','100','2000')
-        this.props.addExpense('gaming bill','testing','500','100230')
-        this.props.addExpense('water bill','testing','400','103210')
-        this.props.setTextFilter('e')
     }
 
     render(){
