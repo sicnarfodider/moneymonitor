@@ -1,29 +1,25 @@
 import React,{ Component } from 'react';
 import { connect } from 'react-redux';
 import { addExpense, setTextFilter } from '../actions';
-import { getFilteredExpenses } from '../helpers';
-
+import ExpenseList from './expenseList';
+import Filters from './filters';
 
 class Dashboard extends Component{
 
-    componentDidMount(){
-        this.props.addExpense('rent','testing','100')
-        this.props.addExpense('gaming bill','testing','500')
-        this.props.addExpense('water bill','testing','400')
-        console.log('expense', this.props.expense)
-        this.props.setTextFilter('bill')
-        console.log( 'filters', this.props.filters);
+    componentWillMount(){
+        this.props.addExpense('rent','testing','100','2000')
+        this.props.addExpense('gaming bill','testing','500','100230')
+        this.props.addExpense('water bill','testing','400','103210')
+        this.props.setTextFilter('e')
     }
 
     render(){
         console.log('props',this.props);
-        if(this.props.expense.length>0){
-            console.log('filtering',getFilteredExpenses(this.props.expense, this.props.filters) )
-
-        }
         return(
             <div>
                 Dashboard
+                <Filters />
+                <ExpenseList />
             </div>
         )
     }
